@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\InscriptionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+
+Route::get('inscription', [InscriptionController::class, 'index'])->name('inscription');
+
+//Route::get('/', [InscriptionController::Inscription')->name('Inscription');
+Route::get('/all-etudiant',[InscriptionController::class, 'getalletudiant'])->name('etudiant.getalletudiantusingmodel');
+Route::get('etudiant', [InscriptionController::class,  'getidentite'])->name('etudiant');
